@@ -6,8 +6,8 @@ authors = ["Rob Moore <rob.moore@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-modin = {extras = ["ray"], version = "^0.11.1"}
 pandas-market-calendars = "^3.2"
+modin = {extras = ["ray"], version = "^0.12.1"}
 
 [tool.poetry.dev-dependencies]
 

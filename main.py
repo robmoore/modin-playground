@@ -29,19 +29,19 @@ def main():
     df = pd.DataFrame(index=pricing_index)
 
     # Following results in ValueError: Invalid integer data type 'f'.
-    # filtered_df = df.loc['2017-01-09'].index.get_level_values("entity")
-    filtered_df = df._default_to_pandas(lambda x: x.loc['2017-01-09']).index.get_level_values("entity")
+    filtered_df = df.loc['2017-01-09'].index.get_level_values("entity")
+    # filtered_df = df._default_to_pandas(lambda x: x.loc['2017-01-09']).index.get_level_values("entity")
     print(filtered_df)
 
     dates_df = pd.DataFrame(df.index.get_level_values("pricing_date")).drop_duplicates().sort_values(by="pricing_date")
     # Following results in TypeError: '>=' not supported between instances of 'str' and 'int'
-    # print(dates_df.iloc[len(dates_df) // 2]["pricing_date"])
+    #pricing_date = dates_df.iloc[len(dates_df) // 2]["pricing_date"]
     pricing_date = dates_df.iloc[len(dates_df) // 2].squeeze()
     print(pricing_date)
 
     # As above, following results in ValueError: Invalid integer data type 'f'.
-    # print(df.loc['2016-12-30'])
-    print(df._default_to_pandas(lambda x: x.loc['2016-12-30']))
+    print(df.loc['2016-12-30'])
+    #print(df._default_to_pandas(lambda x: x.loc['2016-12-30']))
 
 
 if __name__ == '__main__':
